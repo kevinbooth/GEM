@@ -13124,27 +13124,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erict\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\GEM.csproj",
+      "projectUniqueName": "C:\\Users\\Kevin\\Documents\\Git\\GEM\\GEM - Core\\GEM.csproj",
       "projectName": "GEM",
-      "projectPath": "C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\GEM.csproj",
-      "packagesPath": "C:\\Users\\erict\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\obj\\",
+      "projectPath": "C:\\Users\\Kevin\\Documents\\Git\\GEM\\GEM - Core\\GEM.csproj",
+      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kevin\\Documents\\Git\\GEM\\GEM - Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\erict\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

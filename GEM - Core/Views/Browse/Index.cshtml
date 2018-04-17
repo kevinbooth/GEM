@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Browse";
+}
+
+
+<div class="container body-content">
+    <h2>Browse Events</h2>
+
+    <p>Search by Title, Description, Location, and Date:</p>
+    <input class="form-control" id="srchInput" type="text" placeholder="Search..">
+    <br>
+    <div class="panel panel-default todo-panel">
+        <div class="panel-heading">Latest Events</div>
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <td>Title:</td>
+                    <td>Description:</td>
+                    <td>Location:</td>
+                    <td>Date:</td>
+                </tr>
+            </thead>
+            <tbody id="srchTable">
+                <tr>
+                    <td>Birthday</td>
+                    <td>We're having a party.</td>
+                    <td>Eric's House</td>
+                    <td>May 12th, 2018</td>
+                </tr>
+                <tr>
+                    <td>Conference</td>
+                    <td>We're having a conference.</td>
+                    <td>NHTI</td>
+                    <td>May 24th, 2018</td>
+                </tr>
+                <tr>
+                    <td>Party</td>
+                    <td>We're having a cool party.</td>
+                    <td>Eric's House</td>
+                    <td>June 2nd, 2018</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="panel-footer">
+        </div>
+    </div>
+</div>
+

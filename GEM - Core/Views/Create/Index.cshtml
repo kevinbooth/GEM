@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-sm-9">
+            <h2>Create an Event</h2>
+
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title">
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Description:</label>
+                <textarea type="text" class="form-control" id="desc" rows="2" placeholder="Enter description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" placeholder="Enter location">
+            </div>
+
+            <label for="date">Date and Time:</label>
+            <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+
+            <div class="form-check">
+                <br />
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Public
+                </label>
+                <small>This decides whether your event will be private or public to GEM usersS.</small>
+            </div>
+
+            <label for="attendee">Search Attendees:</label>
+            <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </span>
+            </div>
+            <br />
+            <textarea type="text" class="form-control" id="attendee" rows="2" placeholder="Attendees placed here.."></textarea>
+            <br />
+
+            <button class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3">
+            <h2>User Info</h2>
+            <p>Something can go here...</p>
+            <p>I have it set as User Info, but that might be of no use.</p>
+            <p>Think of ideas of what to put here.</p>
+        </div>
+    </div>
+</div>
+
