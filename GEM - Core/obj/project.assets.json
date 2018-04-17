@@ -13130,11 +13130,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Kevin\\Documents\\Git\\GEM\\GEM - Core\\GEM.csproj",
       "projectName": "GEM",
       "projectPath": "C:\\Users\\Kevin\\Documents\\Git\\GEM\\GEM - Core\\GEM.csproj",
       "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kevin\\Documents\\Git\\GEM\\GEM - Core\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\GEM.csproj",
+      "projectName": "GEM",
+      "projectPath": "C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\GEM.csproj",
+      "packagesPath": "C:\\Users\\erict\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\obj\\",
+>>>>>>> dev-backend
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
