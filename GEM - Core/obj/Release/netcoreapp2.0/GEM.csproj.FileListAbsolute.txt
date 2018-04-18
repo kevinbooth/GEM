@@ -1,0 +1,13 @@
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Release\netcoreapp2.0\app.db
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Release\netcoreapp2.0\GEM.deps.json
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Release\netcoreapp2.0\GEM.runtimeconfig.json
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Release\netcoreapp2.0\GEM.runtimeconfig.dev.json
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Release\netcoreapp2.0\GEM.dll
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Release\netcoreapp2.0\GEM.pdb
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\GEM.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\GEM.AssemblyInfoInputs.cache
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\GEM.AssemblyInfo.cs
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\GEM.dll
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\GEM.pdb
+C:\Users\Kevin\Documents\Git\GEM\GEM - Core\obj\Release\netcoreapp2.0\GEM.csprojResolveAssemblyReference.cache
