@@ -15,6 +15,7 @@ namespace GEM.Services
                 {
                     FirstName = "John",
                     LastName = "Doe",
+                    Email = "jdoe@example.com",
                     Username = "jdoe2018",
                     Password = "Password"
                 } 
