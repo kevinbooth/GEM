@@ -1,27 +1,43 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GEM.Data;
 using GEM.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GEM.Services
 {
     public class EventService : IEventService
     {
-        public Task<IEnumerable<Event>> GetEventsAsync() 
+        private readonly ApplicationDbContext _context;
+        public EventService(ApplicationDbContext context)
         {
-            IEnumerable<Event> placeholder = new[]
+            _context = context;
+        }
+        public async Task<IEnumerable<Event>> GetEventsAsync() 
+        {
+            var events = await _context.Events
+                .ToArrayAsync();
+
+            return events;
+        }
+        public async Task<bool> AddEventAsync(Event newEvent)
+        {
+            var entity = new Event
             {
-                new Event 
-                {
-                    Owner = new Guid(),
-                    IsPrivate = false,
-                    Title = "Title",
-                    Description = "Description",
-                    DateAndTime = DateTime.Now.AddDays(14),
-                    Location = "Nowhere, USA"
-                }
+                Id = Guid.NewGuid(),
+                Owner = newEvent.Owner,
+                IsPrivate = newEvent.IsPrivate,
+                Title = newEvent.Title,
+                Description = newEvent.Description,
+                DateAndTime = newEvent.DateAndTime,
+                Location = newEvent.Location
             };
-            return Task.FromResult(placeholder);
+
+            _context.Events.Add(entity);
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
         }
     }
 }

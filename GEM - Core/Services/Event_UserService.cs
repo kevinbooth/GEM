@@ -1,4 +1,6 @@
-﻿using GEM.Models;
+﻿using GEM.Data;
+using GEM.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,20 +8,32 @@ using System.Threading.Tasks;
 
 namespace GEM.Services
 {
-    public class Event_UserService : IEvent_User
+    public class Event_UserService : IEvent_UserService
     {
-        public Task<IEnumerable<Event_User>> GetEvent_UsersAsync()
+        private readonly ApplicationDbContext _context;
+        public Event_UserService(ApplicationDbContext context)
         {
-            IEnumerable<Event_User> placeholder = new[]
+            _context = context;
+        }
+        public async Task<IEnumerable<Event_User>> GetEvent_UsersAsync()
+        {
+            var event_users = await _context.Event_Users
+                .ToArrayAsync();
+
+            return event_users;
+        }
+        public async Task<bool> AddUserToEvent(Event eventToAttend, User userToAttend)
+        {
+            var entity = new Event_User
             {
-                new Event_User
-                {
-                    User = new Guid(),
-                    Event = new Guid()
-                }
+                Event = eventToAttend.Id,
+                User = userToAttend.Id
             };
 
-            return Task.FromResult(placeholder);
+            _context.Event_Users.Add(entity);
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
         }
     }
 }

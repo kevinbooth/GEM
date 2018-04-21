@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GEM.Models;
+using GEM.Services;
 
 namespace GEM.Controllers
 {
@@ -19,23 +20,34 @@ namespace GEM.Controllers
         //
         //  Views needed for MVP functionality: Index, Details
 
-        public IActionResult Index()
+        private readonly IEventService _eventService;
+        public BrowseController(IEventService eventService)
         {
-            ViewData["Message"] = "Page to show a master list of all events, sorted. TBI";
-
-            return View();
+            _eventService = eventService;
         }
 
-        public IActionResult Details() 
+        public async Task<IActionResult> Index()
+        {
+            var listOfEvents = await _eventService.GetEventsAsync();
+            listOfEvents = listOfEvents.OrderBy(x => x.DateAndTime);
+
+            var model = new EventViewModel()
+            {
+                Events = listOfEvents
+            };
+
+            return View(model);
+        }
+
+        //Is called by the URL ~/Browse/Details?id=<id>
+        public async Task<IActionResult> Details(Guid id) 
         {
             ViewData["Message"] = "Page to show details about an individual event; Contains\n"
-                                + "event name, description, creator, date, etc. TBI";
-            int Event = 0;
+                                + "event name, description, creator, date, etc.";
+            var events = await _eventService.GetEventsAsync();
+            var eventRequested = events.Where(x => x.Id == id);
 
-            // Final data to be passed to view will be data object of type Event, containing
-            // all required information necessary for an event. TBI
-
-            return View(Event);
+            return View(eventRequested);
         }
 
         public IActionResult Error()

@@ -25,6 +25,18 @@ namespace GEM.Data
 
             builder.Entity<Event_User>()
                 .HasKey(c => new { c.Event, c.User });
+
+            builder.Entity<User>()
+                .HasIndex(c => c.Username)
+                .IsUnique();
+
+            builder.Entity<User>()
+                .HasIndex(c => c.Id)
+                .IsUnique();
+
+            builder.Entity<Event>()
+                .HasIndex(c => c.Id)
+                .IsUnique();
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
