@@ -1,13 +1,5 @@
 {
   "version": 1,
-<<<<<<< HEAD
-<<<<<<< HEAD
   "dgSpecHash": "35kTiIOn2B9skWvJh0vd3PsDxWfX+jqLaPAHu/tLb1Vb1h+HrKW/B6s7FJDuSKPNh5Bo5F4K0SOVhac5LGgF1A==",
-=======
-  "dgSpecHash": "v3xbQbky1rLMmTvMF2kJP7nyXhnx+mnuI5Get2SNu798qBhKotFq3Ba2x/61UiFDSDr9URJBPl+Z8mMcr7CxoQ==",
->>>>>>> parent of a51a2f8... Tables and db connection established for project
-=======
-  "dgSpecHash": "v3xbQbky1rLMmTvMF2kJP7nyXhnx+mnuI5Get2SNu798qBhKotFq3Ba2x/61UiFDSDr9URJBPl+Z8mMcr7CxoQ==",
->>>>>>> dev-backend
   "success": true
 }

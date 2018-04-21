@@ -13,19 +13,12 @@ namespace GEM.Services
             {
                 new Event 
                 {
-                    Owner = new User 
-                    {
-                        FirstName = "Jane",
-                        LastName = "Doe",
-                        Username = "jdoe18",
-                        Password = "Password"
-                    },
+                    Owner = new Guid(),
                     IsPrivate = false,
                     Title = "Title",
                     Description = "Description",
                     DateAndTime = DateTime.Now.AddDays(14),
-                    Location = "Nowhere, USA",
-                    Attendees = null
+                    Location = "Nowhere, USA"
                 }
             };
             return Task.FromResult(placeholder);

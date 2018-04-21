@@ -13131,11 +13131,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\GEM.csproj",
+      "projectUniqueName": "C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\GEM.csproj",
       "projectName": "GEM",
-      "projectPath": "C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\GEM.csproj",
+      "projectPath": "C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\GEM.csproj",
       "packagesPath": "C:\\Users\\erict\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\obj\\",
+      "outputPath": "C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
@@ -13200,7 +13200,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\erict\\desktop\\Group Project\\GEM - Core\\obj\\GEM.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file C:\\Users\\erict\\Desktop\\Group Project\\GEM - Core\\obj\\GEM.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }
