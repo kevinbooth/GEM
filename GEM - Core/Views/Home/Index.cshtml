@@ -1,4 +1,6 @@
-﻿@{
+﻿@model EventViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -18,30 +20,23 @@
             <table style="width: 100%" class="table table-hover table-striped" id="browseData">
                 <thead>
                     <tr>
+                        <td>Date:</td>
                         <td>Title</td>
                         <td>Description</td>
                         <td>Location</td>
-                        <td>Date</td>
                     </tr>
                 </thead>
-                <tr>
-                    <td>Birthday</td>
-                    <td>We're having a party.</td>
-                    <td>Eric's House</td>
-                    <td>May 12th, 2018</td>
-                </tr>
-                <tr>
-                    <td>Conference</td>
-                    <td>We're having a conference.</td>
-                    <td>NHTI</td>
-                    <td>May 24th, 2018</td>
-                </tr>
-                <tr>
-                    <td>Party</td>
-                    <td>We're having a cool party.</td>
-                    <td>Eric's House</td>
-                    <td>June 2nd, 2018</td>
-                </tr>
+                <tbody>
+                    @foreach (var item in Model.Events)
+                    {
+                    <tr>
+                        <td>@item.DateAndTime</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Location</td>
+                    </tr>
+                    }
+                </tbody>
             </table>
         </div>
 

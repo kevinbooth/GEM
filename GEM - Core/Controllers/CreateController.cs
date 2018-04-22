@@ -28,13 +28,20 @@ namespace GEM.Controllers
             _eventService = eventService;
             _userService = userService;
         }
+
         public IActionResult Index()
         {
-            ViewData["Message"] = "Page that has a form to create a new event.";
+            
             return View();
         }
 
-        //~/Create/Event
+        public IActionResult Thanks()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Event(NewEvent newEvent)
         {
             if (!ModelState.IsValid)
@@ -44,7 +51,7 @@ namespace GEM.Controllers
             if (!successful)
                 return BadRequest(new { error = "Could not create Event." });
 
-            return Ok();
+            return View("Thanks");
         }
         //~/Create/User
         public async Task<IActionResult> User(NewUser newUser)

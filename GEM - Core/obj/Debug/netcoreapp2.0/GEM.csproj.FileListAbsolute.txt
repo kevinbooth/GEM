@@ -9,7 +9,6 @@ C:\Users\erict\desktop\Group Project\GEM - Core\obj\Debug\netcoreapp2.0\GEM.Asse
 C:\Users\erict\desktop\Group Project\GEM - Core\obj\Debug\netcoreapp2.0\GEM.AssemblyInfo.cs
 C:\Users\erict\desktop\Group Project\GEM - Core\obj\Debug\netcoreapp2.0\GEM.dll
 C:\Users\erict\desktop\Group Project\GEM - Core\obj\Debug\netcoreapp2.0\GEM.pdb
-C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Debug\netcoreapp2.0\app.db
 C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Debug\netcoreapp2.0\GEM.deps.json
 C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Debug\netcoreapp2.0\GEM.runtimeconfig.json
 C:\Users\Kevin\Documents\Git\GEM\GEM - Core\bin\Debug\netcoreapp2.0\GEM.runtimeconfig.dev.json

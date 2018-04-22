@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GEM.Models;
+using GEM.Services;
 
 namespace GEM.Controllers
 {
@@ -17,10 +18,23 @@ namespace GEM.Controllers
         //
         // Views needed for MVP functionality: Index, Login(?)
 
-        public IActionResult Index()
+        private readonly IEventService _eventService;
+        public HomeController(IEventService eventService)
         {
-            ViewData["Message"] = "Page for landing page of web app. TBI";
-            return View();
+            _eventService = eventService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var listOfEvents = await _eventService.GetEventsAsync();
+            listOfEvents = listOfEvents.OrderBy(x => x.DateAndTime);
+
+            var model = new EventViewModel()
+            {
+                Events = listOfEvents
+            };
+
+            return View(model);
         }
 
         public IActionResult Login()
