@@ -21,12 +21,12 @@ namespace GEM.Services
 
             return events;
         }
-        public async Task<bool> AddEventAsync(Event newEvent)
+        public async Task<bool> AddEventAsync(NewEvent newEvent)
         {
             var entity = new Event
             {
                 Id = Guid.NewGuid(),
-                Owner = newEvent.Owner,
+                Owner = new Guid(newEvent.Owner),
                 IsPrivate = newEvent.IsPrivate,
                 Title = newEvent.Title,
                 Description = newEvent.Description,

@@ -8,6 +8,6 @@ namespace GEM.Services
     public interface IUserService
     {
         Task<IEnumerable<User>> GetUsersAsync();
-        Task<bool> AddUserAsync(User newUser);
+        Task<bool> AddUserAsync(NewUser newUser);
     }
 }

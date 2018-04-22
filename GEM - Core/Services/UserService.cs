@@ -23,7 +23,7 @@ namespace GEM.Services
             return users;
         }
 
-        public async Task<bool> AddUserAsync(User newUser)
+        public async Task<bool> AddUserAsync(NewUser newUser)
         {
             var entity = new User
             {

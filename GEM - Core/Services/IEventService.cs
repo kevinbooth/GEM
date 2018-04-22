@@ -8,6 +8,6 @@ namespace GEM.Services
     public interface IEventService
     {
         Task<IEnumerable<Event>> GetEventsAsync();
-        Task<bool> AddEventAsync(Event newEvent);
+        Task<bool> AddEventAsync(NewEvent newEvent);
     }
 }

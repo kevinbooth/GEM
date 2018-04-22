@@ -35,7 +35,7 @@ namespace GEM.Controllers
         }
 
         //~/Create/Event
-        public async Task<IActionResult> Event(Event newEvent)
+        public async Task<IActionResult> Event(NewEvent newEvent)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -47,7 +47,7 @@ namespace GEM.Controllers
             return Ok();
         }
         //~/Create/User
-        public async Task<IActionResult> User(User newUser)
+        public async Task<IActionResult> User(NewUser newUser)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
