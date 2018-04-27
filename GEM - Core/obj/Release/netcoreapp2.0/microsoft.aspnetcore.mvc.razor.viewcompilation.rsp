@@ -17,6 +17,7 @@ C:\Users\Kevin\Documents\Git\GEM\GEM - Core
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Account\SignedOut.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Browse\Details.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Browse\Index.cshtml
+--file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Browse\Thanks.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Create\Index.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Create\Thanks.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Home\About.cshtml

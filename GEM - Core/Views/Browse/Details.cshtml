@@ -1,7 +1,39 @@
-﻿
+﻿@model IEnumerable<Event>
+
+
 @{
     ViewData["Title"] = "Event";
 }
 
-<h2>Event</h2>
+<!-- WE NEED TO TIE DATA HERE WITH THE ID-->
+
+<div class="body-content container">
+
+    @foreach (var item in Model)
+    {
+        <h2>@item.Title</h2>
+        <hr />
+        <h4>Description:</h4>
+        <p>@item.Description</p>
+
+        <h4>Public:</h4>
+        <p>@item.IsPrivate</p>
+
+        <h4>Location:</h4>
+        <p>@item.Location</p>
+
+        <h4>Date and Time:</h4>
+        <p>@item.DateAndTime</p>
+
+        <h4>Number of Attendees:</h4>
+        <p>NOT IMPLEMENTED YET</p>
+
+        <h4>Owner Contact:</h4>
+        <p>@item.Owner</p>
+
+        <a href="@Url.Action("Thanks", new { item.Id })" class="btn btn-primary">Attend Event</a>
+    }
+
+
+</div>
 

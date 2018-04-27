@@ -50,6 +50,15 @@ namespace GEM.Controllers
             return View(eventRequested);
         }
 
+        public async Task<IActionResult> Thanks(Guid id)
+        {
+            
+            var events = await _eventService.GetEventsAsync();
+            var eventRequested = events.Where(x => x.Id == id);
+
+            return View(eventRequested);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
