@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Event>
+
+
+@{
+    ViewData["Title"] = "Event";
+}
+
+<!-- WE NEED TO TIE DATA HERE WITH THE ID-->
+
+<div class="body-content container">
+
+    @foreach (var item in Model) {
+
+    <h1>Thanks for signing up to attend @item.Title!</h1>
+
+    }
+
+</div>
+

@@ -7,7 +7,7 @@
 
 <div class="container body-content">
     <h2>Browse Events</h2>
-
+    <hr />
     <div class="panel panel-default todo-panel">
         <div class="panel-heading">Latest Events</div>
         <div class="table-responsive">
@@ -25,10 +25,11 @@
                     @foreach (var item in Model.Events)
                     {
                     <tr>
-                        <td>@item.DateAndTime</td>
-                        <td>@item.Title</td>
-                        <td>@item.Description</td>
-                        <td>@item.Location</td>
+                        
+                        <td><a style="text-decoration: none; color: black;" href="@Url.Action("Details", new { item.Id })">@item.DateAndTime</a></td>
+                        <td><a style="text-decoration: none; color: black;"href="@Url.Action("Details", new { item.Id })">@item.Title</a></td>
+                        <td><a style="text-decoration: none; color: black;"href="@Url.Action("Details", new { item.Id })">@item.Description</a></td>
+                        <td><a style="text-decoration: none; color: black;"href="@Url.Action("Details", new { item.Id })">@item.Location</a></td>
                     </tr>
                     }
                     <!-- End Table Entries-->
