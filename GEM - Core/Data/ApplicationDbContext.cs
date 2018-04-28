@@ -17,7 +17,8 @@ namespace GEM.Data
 
         public DbSet<Event_User> Event_Users { get; set; }
         public DbSet<Event> Events { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Event_Owner> Event_Owners { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,13 +27,8 @@ namespace GEM.Data
             builder.Entity<Event_User>()
                 .HasKey(c => new { c.Event, c.User });
 
-            builder.Entity<User>()
-                .HasIndex(c => c.Username)
-                .IsUnique();
-
-            builder.Entity<User>()
-                .HasIndex(c => c.Id)
-                .IsUnique();
+            builder.Entity<Event_Owner>()
+                .HasKey(c => new { c.Event, c.Owner });
 
             builder.Entity<Event>()
                 .HasIndex(c => c.Id)

@@ -21,9 +21,16 @@ namespace GEM.Controllers
         //  Views needed for MVP functionality: Index, Details
 
         private readonly IEventService _eventService;
-        public BrowseController(IEventService eventService)
+        private readonly IEvent_OwnerService _eventOwnerService;
+        private readonly IEvent_UserService _eventUserService;
+        private readonly IApplicationUserService _applicationUserService;
+        public BrowseController(IEventService eventService, IEvent_OwnerService eventOwnerService, 
+            IEvent_UserService eventUserService, IApplicationUserService applicationUserService)
         {
             _eventService = eventService;
+            _eventOwnerService = eventOwnerService;
+            _eventUserService = eventUserService;
+            _applicationUserService = applicationUserService;
         }
 
         public async Task<IActionResult> Index()
@@ -42,12 +49,18 @@ namespace GEM.Controllers
         //Is called by the URL ~/Browse/Details?id=<id>
         public async Task<IActionResult> Details(Guid id) 
         {
-            ViewData["Message"] = "Page to show details about an individual event; Contains\n"
-                                + "event name, description, creator, date, etc.";
+            var eventUsers = await _eventUserService.GetEvent_UsersAsync();
+            var eventOwners = await _eventOwnerService.GetEvent_OwnersAsync();
             var events = await _eventService.GetEventsAsync();
-            var eventRequested = events.Where(x => x.Id == id);
+            var applicationUsers = await _applicationUserService.GetApplicationUsersAsync();
 
-            return View(eventRequested);
+            var eventOwner = eventOwners.Where(x => x.Event == id).First();
+
+            ViewData["Event"] = events.Where(x => x.Id == id).First();
+            ViewData["EventUsers"] = eventUsers.Where(x => x.Event == id);
+            ViewData["Owner"] = applicationUsers.Where(x => x.Email == eventOwner.Owner).First();
+
+            return View();
         }
 
         public async Task<IActionResult> Thanks(Guid id)

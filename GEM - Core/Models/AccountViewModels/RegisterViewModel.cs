@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GEM.Models.AccountViewModels
 {
     public class RegisterViewModel
-    {
+    { 
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

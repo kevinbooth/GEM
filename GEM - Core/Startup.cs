@@ -37,9 +37,10 @@ namespace GEM
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
-            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IEvent_UserService, Event_UserService>();
+            services.AddScoped<IEvent_OwnerService, Event_OwnerService>();
+            services.AddScoped<IApplicationUserService, ApplicationUserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

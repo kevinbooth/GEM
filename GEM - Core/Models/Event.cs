@@ -9,7 +9,6 @@ namespace GEM.Models
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public Guid Owner { get; set; }  
         public bool IsPrivate { get; set; }
         [Required]
         public string Title { get; set; }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GEM.Models
 {
-    public class Event_User
+    public class Event_Owner
     {
         [Required]
         [Key]
         public Guid Event { get; set; }
         [Required]
         [Key]
-        public string User { get; set; }
+        public string Owner { get; set; }
     }
 }

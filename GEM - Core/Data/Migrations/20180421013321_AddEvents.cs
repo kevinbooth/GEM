@@ -13,7 +13,6 @@ namespace GEM.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Owner = table.Column<Guid>(nullable: false),
                     IsPrivate = table.Column<bool>(nullable: true),
                     Title = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: true),
@@ -23,7 +22,6 @@ namespace GEM.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Event", x => x.Id);
-                    table.ForeignKey("FK_Event_Owner", x => x.Owner, "Users", "Id");
                 });
         }
 

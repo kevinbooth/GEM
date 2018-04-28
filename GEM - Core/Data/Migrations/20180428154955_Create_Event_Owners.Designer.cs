@@ -11,8 +11,8 @@ using System;
 namespace GEM.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180421013243_AddUsers")]
-    partial class AddUsers
+    [Migration("20180428154955_Create_Event_Owners")]
+    partial class Create_Event_Owners
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,12 +87,13 @@ namespace GEM.Data.Migrations
                     b.Property<string>("Location")
                         .IsRequired();
 
-                    b.Property<Guid>("Owner");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
 
                     b.ToTable("Events");
                 });
@@ -129,6 +130,12 @@ namespace GEM.Data.Migrations
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

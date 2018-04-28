@@ -22,12 +22,12 @@ namespace GEM.Services
 
             return event_users;
         }
-        public async Task<bool> AddUserToEvent(Event eventToAttend, User userToAttend)
+        public async Task<bool> AddUserToEvent(Event eventToAttend, string userToAttend)
         {
             var entity = new Event_User
             {
                 Event = eventToAttend.Id,
-                User = userToAttend.Id
+                User = userToAttend
             };
 
             _context.Event_Users.Add(entity);

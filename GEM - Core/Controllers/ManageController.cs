@@ -26,6 +26,8 @@ namespace GEM.Controllers
         private readonly ILogger _logger;
         private readonly UrlEncoder _urlEncoder;
 
+        private readonly IEventService _eventService;
+
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
         private const string RecoveryCodesKey = nameof(RecoveryCodesKey);
 
@@ -34,15 +36,51 @@ namespace GEM.Controllers
           SignInManager<ApplicationUser> signInManager,
           IEmailSender emailSender,
           ILogger<ManageController> logger,
-          UrlEncoder urlEncoder)
+          UrlEncoder urlEncoder,
+          IEventService eventService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
             _urlEncoder = urlEncoder;
+            _eventService = eventService;
         }
 
+        //----------------------------------------------Project-Made Methods
+        /*
+        //Used to list all the events the user has created, similar to "~/Browse"
+        //Select the specific events for the user in the view. 
+        public async Task<IActionResult> Events()
+        {
+            var listOfEvents = await _eventService.GetEventsAsync();
+            listOfEvents = listOfEvents.OrderBy(x => x.DateAndTime);
+
+            var model = new EventViewModel()
+            {
+                Events = listOfEvents
+            };
+
+            return View(model);
+        }
+
+        //Is called by the URL "~/Manage/Events?id=<id>"
+        //isUpdating is true for event editing and false for event deleting
+        public async Task<IActionResult> Events(Guid id, bool isUpdating)
+        {
+            //Should pass the event that is to be deleted/updated to the appropriate view
+            //isUpdating seperates this into two different views, one for delete one for update
+            //Update: Looks similar to Create, but information is already filled out with data
+            //Delete: Looks like Details, but there is a delete button
+
+            //I think there's already an EF method that deletes a record based on the model you pass it,
+            //but I don't know about update. 
+        }
+        */
+        //----------------------------------------------End project
+        
+
+        //  V Auto generated code V //
         [TempData]
         public string StatusMessage { get; set; }
 

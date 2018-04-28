@@ -3,104 +3,109 @@
 @{
     ViewData["Title"] = "Create";
 }
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-<div class="container body-content">
-    <div class="row">
-        <div class="col-sm-9">
-            <h2>Create an Event</h2>
-            <hr />
-            <form asp-action="Event" method="post">
-                <div class="form-group">
-                    <label asp-for="Owner" class="hidden">Owner ID:</label>
-                    <input asp-for="Owner" class="form-control hidden" value="1850C623-D674-4C61-93B7-7B1E87C733C6">
-                </div>
-                <div class="form-group">
-                    <label asp-for="Title" for="title">Title:</label>
-                    <input asp-for="Title" type="text" class="form-control" id="title" placeholder="Enter title" maxlength="60">
-                </div>
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-sm-9">
+                <h2>Create an Event</h2>
+                <hr />
+                <form asp-action="Event" method="post">
+                    <div class="form-group">
+                        <label asp-for="Owner" class="hidden">Owner ID:</label>
+                        <input asp-for="Owner" class="form-control hidden" value="@UserManager.GetUserName(User)">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title" for="title">Title:</label>
+                        <input asp-for="Title" type="text" class="form-control" id="title" placeholder="Enter title" maxlength="60">
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="Description" for="desc">Description:</label>
-                    <textarea asp-for="Description" type="text" class="form-control" id="desc" rows="2" placeholder="Enter description" maxlength="200"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label asp-for="Description" for="desc">Description:</label>
+                        <textarea asp-for="Description" type="text" class="form-control" id="desc" rows="2" placeholder="Enter description" maxlength="200"></textarea>
+                    </div>
 
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input asp-for="IsPrivate" type="checkbox" class="form-check-input">
-                        Private
-                    </label>
-                    <small>This decides whether your event will be private or public to GEM users.</small>
-                </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input asp-for="IsPrivate" type="checkbox" class="form-check-input">
+                            Private
+                        </label>
+                        <small>This decides whether your event will be private or public to GEM users.</small>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="Location" for="location">Location:</label>
-                    <input asp-for="Location" type="text" class="form-control" id="location" placeholder="Enter location" maxlength="60">
-                </div>
+                    <div class="form-group">
+                        <label asp-for="Location" for="location">Location:</label>
+                        <input asp-for="Location" type="text" class="form-control" id="location" placeholder="Enter location" maxlength="60">
+                    </div>
 
-                <label for="date">Date and Time:</label>
-                <div class='input-group date' id='datetimepicker1'>
-                    <input asp-for="DateAndTime" type='datetime-local' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+                    <label for="date">Date and Time:</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input asp-for="DateAndTime" type='datetime-local' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
 
-                <br />
-                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
-            </form>
+                    <br />
+                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                </form>
                 <br />
                 <a href="/"><button class="btn btn-secondary">Cancel</button></a>
             </div>
 
             @*<div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" placeholder="Enter title">
-            </div>
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter title">
+                </div>
 
-            <div class="form-group">
-                <label for="desc">Description:</label>
-                <textarea type="text" class="form-control" id="desc" rows="2" placeholder="Enter description"></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="desc">Description:</label>
+                    <textarea type="text" class="form-control" id="desc" rows="2" placeholder="Enter description"></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" class="form-control" id="location" placeholder="Enter location">
-            </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" class="form-control" id="location" placeholder="Enter location">
+                </div>
 
-            <label for="date">Date and Time:</label>
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
+                <label for="date">Date and Time:</label>
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
 
-            <div class="form-check">
+                <div class="form-check">
+                    <br />
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        Public
+                    </label>
+                    <small>This decides whether your event will be private or public to GEM usersS.</small>
+                </div>
+
+                <label for="attendee">Search Attendees:</label>
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </span>
+                </div>
                 <br />
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Public
-                </label>
-                <small>This decides whether your event will be private or public to GEM usersS.</small>
+                <textarea type="text" class="form-control" id="attendee" rows="2" placeholder="Attendees placed here.."></textarea>
+                <br />
+
+                <a href="/"><button class="btn btn-secondary">Cancel</button></a>
+                <button class="btn btn-primary">Submit</button>
+            *@
+            <div class="col-sm-3">
+
             </div>
-
-            <label for="attendee">Search Attendees:</label>
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </span>
-            </div>
-            <br />
-            <textarea type="text" class="form-control" id="attendee" rows="2" placeholder="Attendees placed here.."></textarea>
-            <br />
-
-            <a href="/"><button class="btn btn-secondary">Cancel</button></a>
-            <button class="btn btn-primary">Submit</button>
-        *@
-        <div class="col-sm-3">
-
         </div>
     </div>
-</div>
+}
 

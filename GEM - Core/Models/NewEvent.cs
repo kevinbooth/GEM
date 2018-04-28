@@ -9,7 +9,7 @@ namespace GEM.Models
     public class NewEvent
     {
         [Required]
-        public string Owner { get; set; } //Is equal to User.Guid.ToString()
+        public string Owner { get; set; }
         public bool IsPrivate { get; set; }
         [Required]
         public string Title { get; set; }

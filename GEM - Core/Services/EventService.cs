@@ -23,10 +23,9 @@ namespace GEM.Services
         }
         public async Task<bool> AddEventAsync(NewEvent newEvent)
         {
-            var entity = new Event
+            var event_entity = new Event
             {
                 Id = Guid.NewGuid(),
-                Owner = new Guid(newEvent.Owner),
                 IsPrivate = newEvent.IsPrivate,
                 Title = newEvent.Title,
                 Description = newEvent.Description,
@@ -34,10 +33,21 @@ namespace GEM.Services
                 Location = newEvent.Location
             };
 
-            _context.Events.Add(entity);
+            var event_owner_entity = new Event_Owner
+            {
+                Event = event_entity.Id,
+                Owner = newEvent.Owner
+            };
 
-            var saveResult = await _context.SaveChangesAsync();
-            return saveResult == 1;
+            _context.Events.Add(event_entity);
+
+            var saveEvents_Result = await _context.SaveChangesAsync();
+
+            _context.Event_Owners.Add(event_owner_entity);
+
+            var saveEventOwners_Result = await _context.SaveChangesAsync();
+
+            return saveEvents_Result == 1 && saveEventOwners_Result == 1;
         }
     }
 }

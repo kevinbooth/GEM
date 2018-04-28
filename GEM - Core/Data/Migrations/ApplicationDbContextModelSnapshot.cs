@@ -86,12 +86,13 @@ namespace GEM.Data.Migrations
                     b.Property<string>("Location")
                         .IsRequired();
 
-                    b.Property<Guid>("Owner");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
 
                     b.ToTable("Events");
                 });
@@ -100,36 +101,11 @@ namespace GEM.Data.Migrations
                 {
                     b.Property<Guid>("Event");
 
-                    b.Property<Guid>("User");
+                    b.Property<string>("User");
 
                     b.HasKey("Event", "User");
 
                     b.ToTable("Event_Users");
-                });
-
-            modelBuilder.Entity("GEM.Models.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Email")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.Property<string>("Password")
-                        .IsRequired();
-
-                    b.Property<string>("Username")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
