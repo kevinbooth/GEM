@@ -13,7 +13,7 @@ namespace GEM.Data.Migrations
                 columns: table => new
                 {
                     Event = table.Column<Guid>(nullable: false),
-                    User = table.Column<string>(nullable: false)
+                    User = table.Column<string>(nullable: false, maxLength: 256)
                 },
                 constraints: table =>
                 {

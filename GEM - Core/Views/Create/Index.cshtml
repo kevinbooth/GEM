@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Create";
+
+    IEnumerable<ApplicationUser> users = ViewData["Users"] as IEnumerable<ApplicationUser>;
 }
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -52,10 +54,14 @@
                     <br />
                     <div class="form-group">
                         <label for="attendees">Add Attendees:</label><small>Ctrl + Click to select multiple attendees</small>
-                        <select multiple class="form-control" id="sel1">
-                            <option>user1</option>
-                            <option>user2</option>
-                            <option>user3</option>
+                        <select multiple asp-for="Attendees" type="string" class="form-control" id="sel1">
+                            @foreach (ApplicationUser item in users)
+                            {
+                                @if (item.Id != UserManager.GetUserId(User))
+                                {
+                                    <option>@item.Email</option>
+                                }
+                            }
                         </select>
                     </div>
 

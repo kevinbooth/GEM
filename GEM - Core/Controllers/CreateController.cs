@@ -21,15 +21,19 @@ namespace GEM.Controllers
         // Views needed for MVP functionality: Index
 
         private readonly IEventService _eventService;
+        private readonly IApplicationUserService _applicationUserService;
 
-        public CreateController(IEventService eventService)
+        public CreateController(IEventService eventService, IApplicationUserService applicationUserService)
         {
+            _applicationUserService = applicationUserService;
             _eventService = eventService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            
+            var users = await _applicationUserService.GetApplicationUsersAsync();
+            ViewData["Users"] = users;
+
             return View();
         }
 
@@ -48,6 +52,7 @@ namespace GEM.Controllers
             var successful = await _eventService.AddEventAsync(newEvent);
             if (!successful)
                 return BadRequest(new { error = "Could not create Event." });
+
 
             return View("Thanks");
         }

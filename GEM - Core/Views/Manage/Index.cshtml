@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Profile";
     ViewData.AddActivePage(ManageNavPages.Index);
+
+    IEnumerable<Event> EventsOwned = ViewData["EventsOwned"] as IEnumerable<Event>;
+    IEnumerable<Event> EventsIn = ViewData["EventsIn"] as IEnumerable<Event>;
 }
 
 <h4>@ViewData["Title"]</h4>
@@ -43,28 +46,34 @@
 <div class="panel panel-default todo-panel">
     <div class="panel-heading">My Created Events</div>
     <div class="table-responsive">
-        <table style="width: 100%;" class="table table-hover table-striped table-bordered">
-            <thead>
-                <tr>
-                    <td>Date:</td>
-                    <td>Title:</td>
-                    <td>Description:</td>
-                    <td>Location:</td>
-                    <td>Update/Delete</td>
-                </tr>
-            </thead>
-            <tbody id="srchTable">
-                <!-- Begin Table Entries-->
-                <tr>
-                    <td>TEST</td>
-                    <td>TEST</td>
-                    <td>TEST</td>
-                    <td>TEST</td>
-                    <td><a style="margin-right: 4px" class="btn btn-primary">Update</a><a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</a></td>
-                </tr>
-                <!-- End Table Entries-->
-            </tbody>
-        </table>
+        @if (!(EventsOwned.Count() == 0))
+        {
+            <table style="width: 100%;" class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <td>Date:</td>
+                        <td>Title:</td>
+                        <td>Description:</td>
+                        <td>Location:</td>
+                        <td>Update/Delete</td>
+                    </tr>
+                </thead>
+                <tbody id="srchTable">
+                    <!-- Begin Table Entries-->
+                    @foreach (Event item in EventsOwned)
+                    {
+                        <tr>
+                            <td>@item.DateAndTime</td>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>@item.Location</td>
+                            <td><a style="margin-right: 4px" class="btn btn-primary">Update</a><a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</a></td>
+                        </tr>
+                    }
+                    <!-- End Table Entries-->
+                </tbody>
+            </table>
+        }
     </div>
 
     <div class="panel-footer">
@@ -74,28 +83,34 @@
 <div class="panel panel-default todo-panel">
     <div class="panel-heading">Events I Am Attending</div>
     <div class="table-responsive">
-        <table style="width: 100%;" class="table table-hover table-striped table-bordered">
-            <thead>
-                <tr>
-                    <td>Date:</td>
-                    <td>Title:</td>
-                    <td>Description:</td>
-                    <td>Location:</td>
-                    <td>Leave Event</td>
-                </tr>
-            </thead>
-            <tbody id="srchTable">
-                <!-- Begin Table Entries-->
-                <tr>
-                    <td>TEST</td>
-                    <td>TEST</td>
-                    <td>TEST</td>
-                    <td>TEST</td>
-                    <td><a style="margin-right: 4px" class="btn btn-danger">Leave Event</a></td>
-                </tr>
-                <!-- End Table Entries-->
-            </tbody>
-        </table>
+        @if (!(EventsIn.Count() == 0))
+        {
+            <table style="width: 100%;" class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <td>Date:</td>
+                        <td>Title:</td>
+                        <td>Description:</td>
+                        <td>Location:</td>
+                        <td>Leave Event</td>
+                    </tr>
+                </thead>
+                <tbody id="srchTable">
+                    <!-- Begin Table Entries-->
+                    @foreach (Event item in EventsIn)
+                    {
+                        <tr>
+                            <td>@item.DateAndTime</td>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>@item.Location</td>
+                            <td><a style="margin-right: 4px" class="btn btn-danger">Leave Event</a></td>
+                        </tr>
+                    }
+                    <!-- End Table Entries-->
+                </tbody>
+            </table>
+        }
     </div>
 
     <div class="panel-footer">
@@ -117,7 +132,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
             </div>
         </div>
     </div>

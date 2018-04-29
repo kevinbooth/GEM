@@ -26,6 +26,8 @@ namespace GEM.Controllers
         private readonly ILogger _logger;
         private readonly UrlEncoder _urlEncoder;
 
+        private readonly IEvent_UserService _event_UserService;
+        private readonly IEvent_OwnerService _event_OwnerService;
         private readonly IEventService _eventService;
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
@@ -37,7 +39,7 @@ namespace GEM.Controllers
           IEmailSender emailSender,
           ILogger<ManageController> logger,
           UrlEncoder urlEncoder,
-          IEventService eventService)
+          IEventService eventService, IEvent_UserService event_UserService, IEvent_OwnerService event_OwnerService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -45,6 +47,8 @@ namespace GEM.Controllers
             _logger = logger;
             _urlEncoder = urlEncoder;
             _eventService = eventService;
+            _event_OwnerService = event_OwnerService;
+            _event_UserService = event_UserService;
         }
 
         //----------------------------------------------Project-Made Methods
@@ -92,6 +96,19 @@ namespace GEM.Controllers
             {
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
+
+            var events = await _eventService.GetEventsAsync();
+            var event_users = await _event_UserService.GetEvent_UsersAsync();
+            var event_owners = await _event_OwnerService.GetEvent_OwnersAsync();
+
+            var eventsUserIsInIds = event_users.Where(x => x.User == user.Email).Select(x => x.Event);
+            var eventsUserOwnsIds = event_owners.Where(x => x.Owner == user.Email).Select(x => x.Event);
+
+            var eventsUserIsIn = events.Where(x => eventsUserIsInIds.Contains(x.Id));
+            var eventsUserOwns = events.Where(x => eventsUserOwnsIds.Contains(x.Id));
+
+            ViewData["EventsOwned"] = eventsUserOwns;
+            ViewData["EventsIn"] = eventsUserIsIn;
 
             var model = new IndexViewModel
             {

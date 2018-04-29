@@ -19,5 +19,6 @@ namespace GEM.Models
         public DateTimeOffset DateAndTime { get; set; }
         [Required]
         public string Location { get; set; }
+        public IEnumerable<string> Attendees { get; set; }
     }
 }

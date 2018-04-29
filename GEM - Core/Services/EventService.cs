@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using GEM.Data;
 using GEM.Models;
@@ -47,7 +48,24 @@ namespace GEM.Services
 
             var saveEventOwners_Result = await _context.SaveChangesAsync();
 
-            return saveEvents_Result == 1 && saveEventOwners_Result == 1;
+            int saveEventUsers_Result = 1;
+            if (newEvent.Attendees != null && newEvent.Attendees.Count() != 0)
+            {
+                
+                foreach (string userEmail in newEvent.Attendees)
+                {
+                    
+                    _context.Event_Users.Add(
+                        new Event_User
+                        {
+                            Event = event_entity.Id,
+                            User = userEmail
+                        });
+                    saveEventUsers_Result = await _context.SaveChangesAsync();
+                }
+            }
+
+            return saveEvents_Result == 1 && saveEventOwners_Result == 1 && saveEventUsers_Result == 1;
         }
     }
 }
