@@ -33,6 +33,7 @@ C:\Users\Kevin\Documents\Git\GEM\GEM - Core
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\SetPassword.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\ShowRecoveryCodes.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\TwoFactorAuthentication.cshtml
+--file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\Update.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\_Layout.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\_ManageNav.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\_StatusMessage.cshtml

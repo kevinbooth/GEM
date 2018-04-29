@@ -7,9 +7,9 @@
 
 <div class="jumbotron light-blue">
     <div class="container body-content">
-        <h1>GEM</h1>
+        <h1 id="header--name">GEM</h1>
         <p class="lead">Your Favorite Event Management Tool</p>
-        <p><a href="" class="btn btn-primary btn-lg">Browse &raquo;</a></p>
+        <p><a href="/Browse" class="btn btn-default btn-lg">Browse &raquo;</a></p>
     </div>
 </div>
 
@@ -33,7 +33,7 @@
                         if (i < 10)
                         {
                         <tr>
-                            <td>@item.DateAndTime</td>
+                            <td>@item.DateAndTime.ToString("MMM dd yyyy h:MM tt")</td>
                             <td>@item.Title</td>
                             <td>@item.Description</td>
                             <td>@item.Location</td>
