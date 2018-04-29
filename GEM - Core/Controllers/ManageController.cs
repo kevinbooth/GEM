@@ -529,6 +529,12 @@ namespace GEM.Controllers
             return View(nameof(ShowRecoveryCodes), model);
         }
 
+        public IActionResult Update(Guid id)
+        {
+
+            return View();
+        }
+
         #region Helpers
 
         private void AddErrors(IdentityResult result)

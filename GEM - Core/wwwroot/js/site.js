@@ -1,5 +1,6 @@
 ﻿// Write your JavaScript code.
 
+
 $(document).ready(function () {
     $("#srchInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
@@ -8,6 +9,11 @@ $(document).ready(function () {
         });
     });
 
-    $("#browseData").dataTable();
+
+
+    $('#browseData').DataTable({
+        "order": [[0, "desc"]], 
+        "columnDefs": [{ "type": "formatted-num", "target": 0}]
+    });
 
 });
