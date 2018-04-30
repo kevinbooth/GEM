@@ -4,10 +4,10 @@
     string alreadyAttending = ViewData["Attending"] as string;
 }
 
-<!-- WE NEED TO TIE DATA HERE WITH THE ID-->
 
 <div class="body-content container">
 
+    <!-- Validates if you have already signed for event-->
     @if (alreadyAttending.Equals("false"))
     {
         <h1>Thanks for signing up to attend '@item.Title'!</h1>

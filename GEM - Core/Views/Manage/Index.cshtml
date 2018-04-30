@@ -12,6 +12,7 @@
 <h4>@ViewData["Title"]</h4>
 @Html.Partial("_StatusMessage", Model.StatusMessage)
 <div class="row">
+    <!-- Begin User Info -->
     <div class="col-md-6">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -43,11 +44,13 @@
             <button type="submit" class="btn btn-default">Save</button>
         </form>
     </div>
+    <!-- End User Info -->
 </div>
 <br />
 <div class="panel panel-default todo-panel">
     <div class="panel-heading">My Created Events</div>
     <div class="table-responsive">
+        <!-- If no events, dont't show table-->
         @if (!(EventsOwned.Count() == 0))
         {
             <table style="width: 100%;" class="table table-hover table-striped table-bordered">
@@ -85,6 +88,7 @@
 <div class="panel panel-default todo-panel">
     <div class="panel-heading">Events I Am Attending</div>
     <div class="table-responsive">
+        <!-- If no events, dont't show table-->
         @if (!(EventsIn.Count() == 0))
         {
             <table style="width: 100%;" class="table table-hover table-striped table-bordered">
@@ -119,8 +123,8 @@
     </div>
 </div>
 
-<!-- Begin Delete Modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Begin Delete Modal, Never implemented -->
+@*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -138,8 +142,8 @@
             </div>
         </div>
     </div>
-</div>
-<!-- End Delete Modal-->
+</div>*@
+<!-- End Delete Modal, Never implemented -->
 
 
 @section Scripts {

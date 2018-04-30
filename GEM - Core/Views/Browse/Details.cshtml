@@ -12,9 +12,8 @@
 @using GEM.Models
 
 
-<!-- WE NEED TO TIE DATA HERE WITH THE ID-->
-
 <div class="body-content container">
+    <!-- Displaying Details about event -->
     <h2>@item.Title</h2>
     <hr />
     <h4>Description:</h4>
@@ -35,6 +34,7 @@
     <h4>Owner Contact:</h4>
     <p>@owner.Email</p>
 
+    <!-- Deciphers if Attend Event button should display or not based on ownership and being logged in -->
     @if (SignInManager.IsSignedIn(User) && owner.Id != UserManager.GetUserId(User)) //Syntax example originated from _LoginPartial.cshtml in Views/Shared
     {
         <a href="@Url.Action("Thanks", new { item.Id, userId = UserManager.GetUserId(User) })" class="btn btn-primary">Attend Event</a>

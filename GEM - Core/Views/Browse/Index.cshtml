@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody id="srchTable">
-                    <!-- Begin Table Entries-->
+                    <!-- Begin Table Entries From Model-->
                     @foreach (var item in Model.Events)
                     {
                     <tr>
@@ -32,7 +32,7 @@
                         <td><a style="text-decoration: none; color: #333;"href="@Url.Action("Details", new { item.Id })">@item.Location</a></td>
                     </tr>
                     }
-                    <!-- End Table Entries-->
+                    <!-- End Table Entries From Model-->
                 </tbody>
             </table>
         </div>

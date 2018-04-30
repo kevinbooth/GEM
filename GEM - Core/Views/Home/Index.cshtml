@@ -5,6 +5,7 @@
     int i = 0;
 }
 
+<!-- Begin banner -->
 <div class="jumbotron light-blue">
     <div class="container body-content">
         <h1 id="header--name">GEM</h1>
@@ -12,6 +13,7 @@
         <p><a href="/Browse" class="btn btn-default btn-lg">Browse &raquo;</a></p>
     </div>
 </div>
+<!-- End banner -->
 
 <div class="container body-content">
     <div class="panel panel-default todo-panel">
@@ -28,7 +30,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Events.Reverse())
+                    <!-- Begin Table Display From Models -->
+                    @foreach (var item in Model.Events.Reverse()) // Displaying top 10 latest events
                     {
                         if (i < 10)
                         {
@@ -42,6 +45,7 @@
                         }
                         i++;
                     }
+                    <!-- Begin Table Display From Models -->
                 </tbody>
             </table>
         </div>
