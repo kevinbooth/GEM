@@ -1,0 +1,64 @@
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.exe.config
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.exe
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.pdb
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.dll
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.xml
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.csprojResolveAssemblyReference.cache
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.csproj.CoreCompileInputs.cache
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.exe
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.pdb
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.dll
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.dll
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\System.ValueTuple.dll
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.Support.dll
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.pdb
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.xml
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.pdb
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.xml
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\System.ValueTuple.xml
+C:\Users\LogixBear\source\repos\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.Support.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.exe.config
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.exe
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.pdb
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.dll
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\Newtonsoft.Json.dll
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.dll
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\System.ValueTuple.dll
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.dll
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.Support.dll
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.pdb
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\Newtonsoft.Json.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.pdb
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\System.ValueTuple.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.Support.xml
+D:\Class\Automated\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.csprojResolveAssemblyReference.cache
+D:\Class\Automated\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.csproj.CoreCompileInputs.cache
+D:\Class\Automated\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.exe
+D:\Class\Automated\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.pdb
+D:\Class\Automated\SeleniumTest\SeleniumTest\bin\Debug\Selenium.WebDriver.WaitExtensions.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.exe.config
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.exe
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\SeleniumTest.pdb
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\Selenium.WebDriver.WaitExtensions.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\System.ValueTuple.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.Support.dll
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.pdb
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\FluentAssertions.xml
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.pdb
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\nunit.framework.xml
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\System.ValueTuple.xml
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.xml
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\bin\Debug\WebDriver.Support.xml
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.csprojResolveAssemblyReference.cache
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.exe
+C:\Users\NHTI\Documents\Visual Studio 2017\Projects\SeleniumTest\SeleniumTest\SeleniumTest\obj\Debug\SeleniumTest.pdb
