@@ -1,4 +1,7 @@
-﻿@{
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Event";
     ApplicationUser owner = ViewData["Owner"] as ApplicationUser;
     Event item = ViewData["Event"] as Event;
@@ -8,8 +11,7 @@
 @using Microsoft.AspNetCore.Identity
 @using GEM.Models
 
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+
 <!-- WE NEED TO TIE DATA HERE WITH THE ID-->
 
 <div class="body-content container">
@@ -35,9 +37,7 @@
 
     @if (SignInManager.IsSignedIn(User) && owner.Id != UserManager.GetUserId(User)) //Syntax example originated from _LoginPartial.cshtml in Views/Shared
     {
-        <a href="@Url.Action("Thanks", new { item.Id })" class="btn btn-primary">Attend Event</a>
-        //Kevin, you can probably finish this yourself. Basically the same thing as 
-        //the Create form, but your input is the currently logged in User's email.
+        <a href="@Url.Action("Thanks", new { item.Id, userId = UserManager.GetUserId(User) })" class="btn btn-primary">Attend Event</a>
     }
 </div>
 

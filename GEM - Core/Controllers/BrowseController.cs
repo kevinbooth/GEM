@@ -63,13 +63,33 @@ namespace GEM.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Thanks(Guid id)
+        public async Task<IActionResult> Thanks(Guid id, string userId)
         {
             
             var events = await _eventService.GetEventsAsync();
-            var eventRequested = events.Where(x => x.Id == id);
+            var eventRequested = events.Where(x => x.Id == id).First();
 
-            return View(eventRequested);
+            var users = await _applicationUserService.GetApplicationUsersAsync();
+            var user = users.Where(x => x.Id == userId).First();
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            string alreadyAttending = "true";
+
+            var eventUsers = await _eventUserService.GetEvent_UsersAsync();
+            if (eventUsers.Where(x => x.Event == id && x.User == user.Email).Count() == 0)
+            {
+                alreadyAttending = "false";
+                var successful = await _eventUserService.AddUserToEvent(eventRequested, user.Email);
+
+                if (!successful)
+                    return BadRequest(new { error = "Could not add user to event." });
+            }
+
+            ViewData["Attending"] = alreadyAttending;
+            ViewData["Event"] = eventRequested;
+            return View();
         }
 
         public IActionResult Error()

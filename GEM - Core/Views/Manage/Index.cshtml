@@ -6,6 +6,8 @@
     IEnumerable<Event> EventsOwned = ViewData["EventsOwned"] as IEnumerable<Event>;
     IEnumerable<Event> EventsIn = ViewData["EventsIn"] as IEnumerable<Event>;
 }
+@inject SignInManager<ApplicationUser> SigninManager
+@inject UserManager<ApplicationUser> UserManager
 
 <h4>@ViewData["Title"]</h4>
 @Html.Partial("_StatusMessage", Model.StatusMessage)
@@ -67,7 +69,7 @@
                             <td>@item.Title</td>
                             <td>@item.Description</td>
                             <td>@item.Location</td>
-                            <td><a style="margin: 0 4px 4px 0" class="btn btn-primary btn-sm">Update</a><a style="margin-bottom: 4px" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Delete</a></td>
+                            <td><a style="margin: 0 4px 4px 0" class="btn btn-primary btn-sm">Update</a>@*<a style="margin-bottom: 4px" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">*@<a style="margin-bottom: 4px" class="btn btn-danger btn-sm" href="@Url.Action("Delete", new { eventId = item.Id, userId = UserManager.GetUserId(User) })">Delete</a></td>
                         </tr>
                     }
                     <!-- End Table Entries-->
@@ -104,7 +106,7 @@
                             <td>@item.Title</td>
                             <td>@item.Description</td>
                             <td>@item.Location</td>
-                            <td><a style="margin-right: 4px" class="btn btn-warning btn-sm">Leave Event</a></td>
+                            <td><a href="@Url.Action("Leave", new { eventId = item.Id, userId = UserManager.GetUserId(User) })" style="margin-right: 4px" class="btn btn-warning btn-sm">Leave Event</a></td>
                         </tr>
                     }
                     <!-- End Table Entries-->

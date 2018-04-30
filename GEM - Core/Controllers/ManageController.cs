@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using GEM.Models;
 using GEM.Models.ManageViewModels;
 using GEM.Services;
+using GEM.Data;
 
 namespace GEM.Controllers
 {
@@ -29,6 +30,8 @@ namespace GEM.Controllers
         private readonly IEvent_UserService _event_UserService;
         private readonly IEvent_OwnerService _event_OwnerService;
         private readonly IEventService _eventService;
+        private readonly IApplicationUserService _applicationUserService;
+        private readonly ApplicationDbContext _context;
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
         private const string RecoveryCodesKey = nameof(RecoveryCodesKey);
@@ -39,7 +42,8 @@ namespace GEM.Controllers
           IEmailSender emailSender,
           ILogger<ManageController> logger,
           UrlEncoder urlEncoder,
-          IEventService eventService, IEvent_UserService event_UserService, IEvent_OwnerService event_OwnerService)
+          IEventService eventService, IEvent_UserService event_UserService, IEvent_OwnerService event_OwnerService,
+          ApplicationDbContext context, IApplicationUserService applicationUserService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -49,25 +53,72 @@ namespace GEM.Controllers
             _eventService = eventService;
             _event_OwnerService = event_OwnerService;
             _event_UserService = event_UserService;
+            _context = context;
+            _applicationUserService = applicationUserService;
         }
 
         //----------------------------------------------Project-Made Methods
-        /*
+        
         //Used to list all the events the user has created, similar to "~/Browse"
         //Select the specific events for the user in the view. 
-        public async Task<IActionResult> Events()
+        public async Task<IActionResult> Delete(Guid eventId, string userId)
         {
-            var listOfEvents = await _eventService.GetEventsAsync();
-            listOfEvents = listOfEvents.OrderBy(x => x.DateAndTime);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            int success = 0;
 
-            var model = new EventViewModel()
+            var allEvents = await _eventService.GetEventsAsync();
+            var events = allEvents.Where(x => x.Id == eventId);
+
+            if(events.Count() != 1)
             {
-                Events = listOfEvents
-            };
+                ViewData["Success"] = success == 1 ? "true" : "false";
+                return View();
+            }
 
-            return View(model);
+            var eventToDelete = events.First();
+
+
+            var allUsers = await _applicationUserService.GetApplicationUsersAsync();
+            var users = allUsers.Where(x => x.Id == userId);
+
+            if(users.Count() != 1)
+            {
+                ViewData["Success"] = success == 1 ? "true" : "false";
+                return View();
+            }
+
+            var user = users.First();
+
+            var allEventOwners = await _event_OwnerService.GetEvent_OwnersAsync();
+            var eventOwners = allEventOwners.Where(x => x.Owner == user.Email && x.Event == eventId);
+
+            if(eventOwners.Count() != 1)
+            {
+                ViewData["Success"] = success == 1 ? "true" : "false";
+                return View();
+            }
+
+            var eventOwner = eventOwners.First();
+
+            var allEventUsers = await _event_UserService.GetEvent_UsersAsync();
+            var eventUsers = allEventUsers.Where(x => x.Event == eventId);
+
+            
+            foreach(Event_User eventUser in eventUsers)
+            {
+                _context.Event_Users.Remove(eventUser);
+                success = await _context.SaveChangesAsync();
+            }
+            _context.Events.Remove(eventToDelete);
+            success = await _context.SaveChangesAsync();
+            
+            ViewData["Success"] = success == 1 ? "true" : "false";
+            ViewData["DeletedEvent"] = eventToDelete;
+
+            return View();
         }
-
+        /*
         //Is called by the URL "~/Manage/Events?id=<id>"
         //isUpdating is true for event editing and false for event deleting
         public async Task<IActionResult> Events(Guid id, bool isUpdating)
@@ -81,6 +132,26 @@ namespace GEM.Controllers
             //but I don't know about update. 
         }
         */
+        public async Task<IActionResult> Leave(Guid eventId, string userId)
+        {
+            var eventUsers = await _event_UserService.GetEvent_UsersAsync();
+            var users = await _applicationUserService.GetApplicationUsersAsync();
+            var user = users.Where(x => x.Id == userId);
+
+            int success = 0;
+            if (user.Count() == 1)
+            {
+                var eventUser = eventUsers.Where(x => x.Event == eventId && x.User == user.First().Email);
+                if (eventUser.Count() == 1)
+                { 
+                    _context.Event_Users.Remove(eventUser.First());
+                    success = await _context.SaveChangesAsync();
+                }
+            }
+            ViewData["Success"] = (success == 1 ? "true" : "false");
+
+            return View();
+        }
         //----------------------------------------------End project
         
 

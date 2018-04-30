@@ -1,0 +1,18 @@
+﻿@{
+    string success = ViewData["Success"] as string;
+}
+
+<!-- WE NEED TO TIE DATA HERE WITH THE ID-->
+
+<div class="body-content container">
+
+    @if (success.Equals("true"))
+    {
+        <h1>You successfully deleted the event!</h1>
+    }
+    else
+    {
+        <h1>Unable to delete event.</h1>
+    }
+
+</div>

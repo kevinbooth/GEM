@@ -1,18 +1,20 @@
-﻿@model IEnumerable<Event>
-
-
-@{
+﻿@{
     ViewData["Title"] = "Event";
+    Event item = ViewData["Event"] as Event;
+    string alreadyAttending = ViewData["Attending"] as string;
 }
 
 <!-- WE NEED TO TIE DATA HERE WITH THE ID-->
 
 <div class="body-content container">
 
-    @foreach (var item in Model) {
-
-    <h1>Thanks for signing up to attend @item.Title!</h1>
-
+    @if (alreadyAttending.Equals("false"))
+    {
+        <h1>Thanks for signing up to attend '@item.Title'!</h1>
+    }
+    else
+    {
+        <h1>You were already signed up to attend '@item.Title'!</h1>
     }
 
 </div>
