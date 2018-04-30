@@ -28,12 +28,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Events)
+                    @foreach (var item in Model.Events.Reverse())
                     {
                         if (i < 10)
                         {
                         <tr>
-                            <td>@item.DateAndTime.ToString("MMM dd yyyy h:MM tt")</td>
+                            <td>@item.DateAndTime.ToString("MM/dd/yyyy h:MM tt")</td>
                             <td>@item.Title</td>
                             <td>@item.Description</td>
                             <td>@item.Location</td>

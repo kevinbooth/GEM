@@ -24,11 +24,13 @@ C:\Users\Kevin\Documents\Git\GEM\GEM - Core
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Home\Contact.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Home\Index.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\ChangePassword.cshtml
+--file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\Delete.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\Disable2fa.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\EnableAuthenticator.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\ExternalLogins.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\GenerateRecoveryCodes.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\Index.cshtml
+--file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\Leave.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\ResetAuthenticator.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\SetPassword.cshtml
 --file=C:\Users\Kevin\Documents\Git\GEM\GEM - Core\Views\Manage\ShowRecoveryCodes.cshtml
