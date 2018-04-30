@@ -7,25 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 using GEM.Models;
 using GEM.Services;
 
+// This is the home controller, allowing for the base level routes.
 namespace GEM.Controllers
 {
     public class HomeController : Controller
     {
-        // Code required for full implementation of HomeController page:
-        //  + Short list of events that show recently created events 
-        //    or events that will happen soon (~1 week or something)
-        //  + Connection to a login page; Authentication required
-        //
-        // Views needed for MVP functionality: Index, Login(?)
-
         private readonly IEventService _eventService;
         public HomeController(IEventService eventService)
         {
             _eventService = eventService;
         }
 
+        //Creates the homepage
         public async Task<IActionResult> Index()
         {
+            //gets all the events and orders it by date
             var listOfEvents = await _eventService.GetEventsAsync();
             listOfEvents = listOfEvents.OrderBy(x => x.DateAndTime);
 
@@ -37,6 +33,7 @@ namespace GEM.Controllers
             return View(model);
         }
 
+        //Auto-generated controller, allowing for login
         public IActionResult Login()
         {
             ViewData["Message"] = "Page for loggin into existing account for GEM.\n"
@@ -44,6 +41,7 @@ namespace GEM.Controllers
             return View();
         }
 
+        //Controller for error
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

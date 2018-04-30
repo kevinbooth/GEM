@@ -15,6 +15,8 @@ using GEM.Models.ManageViewModels;
 using GEM.Services;
 using GEM.Data;
 
+
+//This is the controller that allows users to manage the events they have created and selected to attend
 namespace GEM.Controllers
 {
     [Authorize]
@@ -36,6 +38,7 @@ namespace GEM.Controllers
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
         private const string RecoveryCodesKey = nameof(RecoveryCodesKey);
 
+        //This big chunk of code allows for access to the entire db, essentially.
         public ManageController(
           UserManager<ApplicationUser> userManager,
           SignInManager<ApplicationUser> signInManager,
@@ -63,53 +66,51 @@ namespace GEM.Controllers
         //Select the specific events for the user in the view. 
         public async Task<IActionResult> Delete(Guid eventId, string userId)
         {
+            //Error checking
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             int success = 0;
 
+            //Gets the specific event to delete
             var allEvents = await _eventService.GetEventsAsync();
             var events = allEvents.Where(x => x.Id == eventId);
-
             if(events.Count() != 1)
             {
                 ViewData["Success"] = success == 1 ? "true" : "false";
                 return View();
             }
-
             var eventToDelete = events.First();
 
-
+            //Gets the user who is trying to delete the event
             var allUsers = await _applicationUserService.GetApplicationUsersAsync();
             var users = allUsers.Where(x => x.Id == userId);
-
             if(users.Count() != 1)
             {
                 ViewData["Success"] = success == 1 ? "true" : "false";
                 return View();
             }
-
             var user = users.First();
 
+            //Gets the Event_Owner of the event
             var allEventOwners = await _event_OwnerService.GetEvent_OwnersAsync();
             var eventOwners = allEventOwners.Where(x => x.Owner == user.Email && x.Event == eventId);
-
             if(eventOwners.Count() != 1)
             {
                 ViewData["Success"] = success == 1 ? "true" : "false";
                 return View();
             }
-
             var eventOwner = eventOwners.First();
 
+            //Removes all the Event_Users fromthe event
             var allEventUsers = await _event_UserService.GetEvent_UsersAsync();
             var eventUsers = allEventUsers.Where(x => x.Event == eventId);
-
-            
             foreach(Event_User eventUser in eventUsers)
             {
                 _context.Event_Users.Remove(eventUser);
                 success = await _context.SaveChangesAsync();
             }
+
+            //Deletes the event
             _context.Events.Remove(eventToDelete);
             success = await _context.SaveChangesAsync();
             
@@ -118,32 +119,25 @@ namespace GEM.Controllers
 
             return View();
         }
-        /*
-        //Is called by the URL "~/Manage/Events?id=<id>"
-        //isUpdating is true for event editing and false for event deleting
-        public async Task<IActionResult> Events(Guid id, bool isUpdating)
-        {
-            //Should pass the event that is to be deleted/updated to the appropriate view
-            //isUpdating seperates this into two different views, one for delete one for update
-            //Update: Looks similar to Create, but information is already filled out with data
-            //Delete: Looks like Details, but there is a delete button
 
-            //I think there's already an EF method that deletes a record based on the model you pass it,
-            //but I don't know about update. 
-        }
-        */
+        //Enables users to leave an event they are trying to attend
         public async Task<IActionResult> Leave(Guid eventId, string userId)
         {
+            //Gets all the event users 
+            //Gets the specific user
             var eventUsers = await _event_UserService.GetEvent_UsersAsync();
             var users = await _applicationUserService.GetApplicationUsersAsync();
             var user = users.Where(x => x.Id == userId);
 
             int success = 0;
+            //Checks if the user is listed as attending
             if (user.Count() == 1)
             {
+                //Gets the Event_User that the user wants to leave
                 var eventUser = eventUsers.Where(x => x.Event == eventId && x.User == user.First().Email);
                 if (eventUser.Count() == 1)
                 { 
+                    //Deletes the Event_User from the db
                     _context.Event_Users.Remove(eventUser.First());
                     success = await _context.SaveChangesAsync();
                 }
@@ -155,7 +149,7 @@ namespace GEM.Controllers
         //----------------------------------------------End project
         
 
-        //  V Auto generated code V //
+        //  V Auto generated code of magic (DO NOT TOUCH!!!)V //
         [TempData]
         public string StatusMessage { get; set; }
 

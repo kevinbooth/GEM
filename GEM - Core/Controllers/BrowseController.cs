@@ -11,15 +11,7 @@ namespace GEM.Controllers
 {
     public class BrowseController : Controller
     {
-        // Code needed for full implementation of BrowseController page:
-        //  + All events shown on screen in boxes with descriptions, 
-        //    either by infinite scrolling webpage or a shortened list;
-        //    think Google search results when you think of a snippet
-        //  + Each event is clickable, going to an 'About' page which 
-        //    lists the details of the selected event
-        //
-        //  Views needed for MVP functionality: Index, Details
-
+        /* This is the browser controller, which manages all routes that go to ~/Browse. */ 
         private readonly IEventService _eventService;
         private readonly IEvent_OwnerService _eventOwnerService;
         private readonly IEvent_UserService _eventUserService;
@@ -49,13 +41,16 @@ namespace GEM.Controllers
         //Is called by the URL ~/Browse/Details?id=<id>
         public async Task<IActionResult> Details(Guid id) 
         {
+            //Getting data from db
             var eventUsers = await _eventUserService.GetEvent_UsersAsync();
             var eventOwners = await _eventOwnerService.GetEvent_OwnersAsync();
             var events = await _eventService.GetEventsAsync();
             var applicationUsers = await _applicationUserService.GetApplicationUsersAsync();
 
+            //Selecting the owner of the event with id == id
             var eventOwner = eventOwners.Where(x => x.Event == id).First();
 
+            //Sending data to view
             ViewData["Event"] = events.Where(x => x.Id == id).First();
             ViewData["EventUsers"] = eventUsers.Where(x => x.Event == id);
             ViewData["Owner"] = applicationUsers.Where(x => x.Email == eventOwner.Owner).First();
@@ -63,18 +58,22 @@ namespace GEM.Controllers
             return View();
         }
 
+        //Route called when clicking to attend an event
         public async Task<IActionResult> Thanks(Guid id, string userId)
         {
-            
+            //Gets event
             var events = await _eventService.GetEventsAsync();
             var eventRequested = events.Where(x => x.Id == id).First();
 
+            //Gets user to add to event
             var users = await _applicationUserService.GetApplicationUsersAsync();
             var user = users.Where(x => x.Id == userId).First();
 
+            //Error checking
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            //Checks if user is already attending
             string alreadyAttending = "true";
 
             var eventUsers = await _eventUserService.GetEvent_UsersAsync();
@@ -87,11 +86,13 @@ namespace GEM.Controllers
                     return BadRequest(new { error = "Could not add user to event." });
             }
 
+            //Sending data to view
             ViewData["Attending"] = alreadyAttending;
             ViewData["Event"] = eventRequested;
             return View();
         }
 
+        //Error page
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

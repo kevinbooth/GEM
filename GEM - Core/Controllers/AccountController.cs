@@ -14,6 +14,12 @@ using GEM.Models;
 using GEM.Models.AccountViewModels;
 using GEM.Services;
 
+/*  This is all auto-created code that allows for users to login, register,
+ *  and go to their acount. This works by magic. It was never touched, and
+ *  never will be for fear of it breaking. The magic software magicians of
+ *  Microsoft are wise in their ways, long may they reign.
+ */
+
 namespace GEM.Controllers
 {
     [Authorize]

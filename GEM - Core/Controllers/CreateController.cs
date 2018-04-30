@@ -7,48 +7,45 @@ using Microsoft.AspNetCore.Mvc;
 using GEM.Models;
 using GEM.Services;
 
+/* This is the controller that works with all routes that go through ~/Create */ 
 namespace GEM.Controllers
 {
     public class CreateController : Controller
     {
-        // Code needed for full implementation of CreateController page:
-        //  + Basic HTML or other form used to fill out basic data for
-        //    an event. Required fields include title, creator, date,
-        //    description, and location.
-        //  + A successful event creation pushes the active webpage to 
-        //    the basic browsing page for an event: Browse/[EventID]
-        //
-        // Views needed for MVP functionality: Index
-
         private readonly IEventService _eventService;
         private readonly IApplicationUserService _applicationUserService;
 
+        //Enables access to db tables
         public CreateController(IEventService eventService, IApplicationUserService applicationUserService)
         {
             _applicationUserService = applicationUserService;
             _eventService = eventService;
         }
 
+        //Allows for route ~/Controller
         public async Task<IActionResult> Index()
         {
+            //Gets all users and passes it to view
             var users = await _applicationUserService.GetApplicationUsersAsync();
             ViewData["Users"] = users;
 
             return View();
         }
 
+        //Allows for route ~/Controller/Thanks
         public IActionResult Thanks()
         {
-
             return View();
         }
 
+        //Allows for route ~/Controller/Event?<newEvent>
         [HttpPost]
         public async Task<IActionResult> Event(NewEvent newEvent)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            //Goes to db service and adds the created event to db. See Services/EventService
             var successful = await _eventService.AddEventAsync(newEvent);
             if (!successful)
                 return BadRequest(new { error = "Could not create Event." });
@@ -57,6 +54,7 @@ namespace GEM.Controllers
             return View("Thanks");
         }
 
+        //Allows for route ~/Controller/Error
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
